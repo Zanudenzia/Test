@@ -1,0 +1,317 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --var-body-bg: #fff;
+  --var-body-fc: black;
+}
+
+[dark] {
+  --var-body-bg: black;
+  --var-body-fc: #fff;
+}
+
+body {
+  background: var(--var-body-bg);
+  color: var(--var-body-fc);
+}
+
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #000e6b;
+
+  position: sticky;
+  top: 0;
+
+  width: 100%;
+  z-index: 10;
+}
+
+ul {
+  list-style: none;
+}
+
+.header_menu li {
+  display: inline-block;
+  margin: 25px;
+  text-decoration: none;
+  cursor: pointer;
+  flex: 0 1 auto;
+}
+
+.header_menu a {
+  text-decoration: none;
+  cursor: pointer;
+  font-size: 25px;
+  color: white;
+}
+
+.theme {
+  color: white;
+}
+
+.theme input {
+  margin: 0 10px;
+}
+
+@media screen and (max-width: 800px) {
+  .header_menu a {
+    font-size: 20px;
+    margin: 11px;
+  }
+}
+
+@media screen and (max-width: 715px) {
+  .header_menu a {
+    font-size: 13px;
+  }
+  .header_menu li {
+    padding: 5px;
+  }
+
+  .theme input {
+    margin: 0 5px;
+    font-size: 13px;
+  }
+}
+.header_menu a:hover,
+.footer a:hover {
+  color: #02b6e7;
+}
+
+.section {
+  text-align: center;
+  padding-top: 80px;
+  margin-top: -80px;
+}
+
+.section-title {
+  display: block;
+  font-size: 30px;
+  margin: 50px;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.card {
+  width: 225px;
+  min-height: 350px;
+  box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.1);
+
+  flex-direction: column;
+  margin: 0 10px;
+  border-radius: 4px;
+  transition: 0.2s;
+  position: relative;
+}
+
+.card:hover {
+  box-shadow: 4px 8px 16px rgba(130, 129, 129, 0.2);
+}
+
+.card__image {
+  display: block;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+.card__image > img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: 0.2s;
+}
+
+.card__image:hover > img {
+  transform: scale(1.1);
+}
+
+.card__bottom {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+
+.card__title {
+  text-decoration: none;
+  color: var(--var-body-fc);
+
+  font-size: 20px;
+  flex: 1 0 60px;
+}
+
+.card__prices {
+  padding: 5px;
+}
+
+.go-top {
+  position: fixed;
+  right: 20px;
+  bottom: 40px;
+  transform: translateY(-50%);
+  cursor: pointer;
+  font-size: 20px;
+  color: white;
+  border: 1px solid rgba(0, 13, 107, 0.5);
+  background-color: rgba(0, 13, 107, 0.5);
+  border-radius: 50%;
+  padding: 10px;
+  display: none;
+}
+
+.go-top:hover {
+  color: rgba(0, 13, 107, 0.8);
+  border: 1px solid rgba(0, 13, 107, 0.8);
+  background-color: rgba(0, 13, 107, 0.15);
+}
+
+.go-top--show {
+  display: block;
+}
+
+.card-modal {
+  position: fixed;
+
+  left: 0;
+  top: 0;
+  background: rgba(0, 0, 0, 0.8);
+  width: 100%;
+  height: 100vh;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.4s, visibility 0.4s;
+}
+
+.card-modal.open {
+  visibility: visible;
+  opacity: 1;
+}
+
+.card-modal-box {
+  background: white;
+  width: 400px;
+  box-shadow: 0 2px 25px rgba(0, 13, 107, 0.627);
+  padding: 40px 0;
+  color: black;
+  text-align: center;
+  position: relative;
+}
+
+.card-modal-box p {
+  font-size: 20px;
+  margin-bottom: 15px;
+}
+
+.custom-radios {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+input[type="radio"] {
+  display: none;
+}
+
+span {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  margin: 10px;
+  vertical-align: middle;
+  cursor: pointer;
+  border-radius: 50%;
+  border: 2px solid #ffffff;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.33);
+  background-repeat: no-repeat;
+  background-position: center;
+  text-align: center;
+  line-height: 44px;
+}
+
+#color-1 + label span {
+  background-color: #000d6b;
+}
+#color-2 + label span {
+  background-color: #02b6e7;
+}
+
+#color-3 + label span {
+  background-color: black;
+}
+
+.custom-radios i {
+  opacity: 0;
+  transition: all 0.3s ease;
+  color: white;
+}
+
+.custom-radios input:checked + label span i {
+  opacity: 1;
+}
+
+#card-button {
+  color: white;
+  padding: 10px;
+  width: 150px;
+  border-radius: 5%;
+}
+
+.card-close-modal i {
+  position: absolute;
+  border: none;
+  background-color: white;
+  padding: 5px;
+  top: 8px;
+  right: 8px;
+  fill: white;
+  cursor: pointer;
+}
+
+.card-modal-box h2 {
+  margin: 20px;
+}
+
+.card-modal-box input {
+  height: 28px;
+  margin-bottom: 15px;
+}
+.card-modal-box input:focus {
+  border-color: #000d6b;
+}
+.card-modal-box button {
+  background: #000d6b;
+  color: var(--white);
+  border-radius: 3px;
+  border: 0.2px solid #ffffff;
+  padding: 7px;
+}
+
+.footer {
+  background: #000d6b;
+}
+
+.footer li {
+  text-align: center;
+  display: inline-block;
+  margin: 20px;
+  text-decoration: none;
+}
+
+.footer a {
+  text-decoration: none;
+  color: #fff;
+  cursor: pointer;
+}
